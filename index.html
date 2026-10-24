@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ragam: katalog dan nota pesanan</title>
+  <meta name="description" content="Katalog barang dari dummyjson, dipilih lalu dicetak menjadi nota pesanan di halaman yang sama.">
+  <link rel="preconnect" href="https://cdn.dummyjson.com">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d2b25'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23f2f4cf'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <a class="lewati" href="#katalog">Lewati ke katalog</a>
+
+  <header class="kepala" id="kepala">
+    <div class="kepala__dalam">
+      <a class="merek" href="#atas"><span class="merek__inti">ragam</span><span class="merek__titik">.</span></a>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="nav__tautan" href="#katalog">Katalog</a>
+        <a class="nav__tautan" href="#nota">Nota</a>
+        <a class="tombol tombol--garis" href="#nota">Buat nota</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+    <div class="panggung" id="panggung">
+      <div class="panggung__latar" aria-hidden="true">
+        <div class="panggung__gambar" id="latarParallax"></div>
+        <div class="panggung__tirai"></div>
+        <span class="panggung__bentuk panggung__bentuk--satu" data-kecepatan="1.15"></span>
+        <span class="panggung__bentuk panggung__bentuk--dua" data-kecepatan="1.45"></span>
+      </div>
+
+      <section class="hero" aria-labelledby="judulHero">
+        <div class="hero__latar" id="latarHero" aria-hidden="true">
+          <div class="hero__wall" id="dindingHero"></div>
+          <div class="hero__tirai"></div>
+          <span class="hero__blob hero__blob--satu"></span>
+          <span class="hero__blob hero__blob--dua"></span>
+        </div>
+
+        <div class="hero__dalam">
+          <div class="hero__teks">
+            <h1 class="hero__judul" id="judulHero">
+              <span class="hero__baris"><span class="hero__baris-isi">Pilih barang.</span></span>
+              <span class="hero__baris"><span class="hero__baris-isi">Nota langsung jadi.</span></span>
+            </h1>
+            <p class="hero__ket">
+              Tiga puluh barang dari dummyjson, lengkap dengan harga dan stok.
+              Pilih satu, isi form pesanan, lalu nota tercetak di halaman ini.
+            </p>
+            <div class="hero__aksi">
+              <a class="tombol tombol--krem" href="#katalog">
+                Lihat katalog
+                <svg class="tombol__panah" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                </svg>
+              </a>
+              <a class="hero__tautan" href="#nota">Isi form pesanan</a>
+            </div>
+          </div>
+        </div>
+
+        <ul class="fakta" id="fakta">
+          <li class="fakta__item">
+            <span class="fakta__nilai fakta__nilai--angka" id="faktaBarang" role="text" aria-label="Memuat data"><span class="fakta__nilai-isi" aria-hidden="true">—</span></span>
+            <span class="fakta__label">Barang</span>
+          </li>
+          <li class="fakta__item">
+            <span class="fakta__nilai fakta__nilai--angka" id="faktaKategori" role="text" aria-label="Memuat data"><span class="fakta__nilai-isi" aria-hidden="true">—</span></span>
+            <span class="fakta__label">Kategori</span>
+          </li>
+          <li class="fakta__item fakta__item--harga">
+            <span class="fakta__nilai fakta__nilai--harga" id="faktaHarga" role="text" aria-label="Memuat data"><span class="fakta__nilai-isi" aria-hidden="true">—</span></span>
+            <span class="fakta__label">Rentang harga</span>
+          </li>
+        </ul>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span class="marquee__item">Pilih barang</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Isi form pesanan</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Nota langsung jadi</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Harga dan stok dari dummyjson</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Tanpa reload</span>
+            <span class="marquee__pemisah">•</span>
+          </div>
+          <div class="marquee__group" aria-hidden="true">
+            <span class="marquee__item">Pilih barang</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Isi form pesanan</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Nota langsung jadi</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Harga dan stok dari dummyjson</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Tanpa reload</span>
+            <span class="marquee__pemisah">•</span>
+          </div>
+          <div class="marquee__group" aria-hidden="true">
+            <span class="marquee__item">Pilih barang</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Isi form pesanan</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Nota langsung jadi</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Harga dan stok dari dummyjson</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Tanpa reload</span>
+            <span class="marquee__pemisah">•</span>
+          </div>
+          <div class="marquee__group" aria-hidden="true">
+            <span class="marquee__item">Pilih barang</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Isi form pesanan</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Nota langsung jadi</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Harga dan stok dari dummyjson</span>
+            <span class="marquee__pemisah">•</span>
+            <span class="marquee__item">Tanpa reload</span>
+            <span class="marquee__pemisah">•</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="bagian bagian--pembuka" id="katalog" aria-labelledby="judulKatalog">
+        <div class="bagian__kepala reveal">
+          <h2 class="bagian__judul" id="judulKatalog">Katalog</h2>
+          <div class="bagian__ket">
+            <p>
+              Harga dan stok mengikuti API data dummyjson.
+              Tekan Pesan pada barang yang kamu mau.
+            </p>
+            <p class="bagian__hitung" id="jumlahProduk" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="bagian bagian--daftar" aria-label="Daftar barang">
+      <p class="katalog__status" id="statusMemuat" aria-live="polite">Memuat barang...</p>
+
+      <div class="gagal" id="statusGagal" hidden>
+        <p class="gagal__teks">Katalog gagal dimuat. Periksa koneksi lalu coba lagi.</p>
+        <button class="tombol tombol--gelap" type="button" id="tombolCobaLagi">Coba lagi</button>
+      </div>
+
+      <div class="katalog__grid" id="daftarProduk"></div>
+    </section>
+
+    <section class="bagian bagian--nota" id="nota" aria-labelledby="judulNota">
+      <div class="bagian__kepala reveal">
+        <h2 class="bagian__judul" id="judulNota">Nota pesanan</h2>
+        <div class="bagian__ket">
+          <p>
+            Isi nama, jumlah, dan catatan. Validasi berjalan saat kamu menekan
+            Buat nota, dan pesan muncul tepat di bawah isian yang perlu diperbaiki.
+          </p>
+        </div>
+      </div>
+
+      <div class="nota__tata">
+        <form class="kartu-form reveal" id="formPesanan" novalidate>
+          <h3 class="kartu-form__judul">Isi pesanan</h3>
+
+          <div class="pilihan" id="barangTerpilih">
+            <p class="pilihan__kosong">Belum ada barang dipilih.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="namaPemesan">Nama pemesan</label>
+            <input class="field__input" id="namaPemesan" name="namaPemesan" type="text"
+                   autocomplete="name" spellcheck="false" aria-describedby="errorNama">
+            <p class="field__pesan" id="errorNama" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="jumlah">Jumlah</label>
+            <input class="field__input" id="jumlah" name="jumlah" type="number"
+                   inputmode="numeric" min="1" step="1" aria-describedby="bantuanJumlah errorJumlah">
+            <p class="field__bantuan" id="bantuanJumlah">Pilih barang dulu untuk melihat batas jumlah.</p>
+            <p class="field__pesan" id="errorJumlah" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="catatan">Catatan <span class="field__opsional">(opsional)</span></label>
+            <textarea class="field__input field__input--area" id="catatan" name="catatan"
+                      rows="3" spellcheck="false" aria-describedby="errorCatatan"></textarea>
+            <p class="field__pesan" id="errorCatatan" aria-live="polite"></p>
+          </div>
+
+          <div class="kartu-form__aksi">
+            <button class="tombol tombol--gelap" type="submit">Buat nota</button>
+            <button class="tombol tombol--teks" type="button" id="tombolKosongkan">Kosongkan</button>
+          </div>
+
+          <p class="kartu-form__status" id="statusText" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="kertas reveal" id="isiNotaKertas">
+          <div class="kertas__kepala">
+            <p class="kertas__label">Nota</p>
+            <p class="kertas__nomor" id="nomorNota"></p>
+          </div>
+
+          <div class="kertas__kosong" id="notaKosong">
+            <svg class="kertas__ikon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true" focusable="false">
+              <rect x="10" y="5" width="24" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="M16 14h12M16 20h12M16 26h8M16 32h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            <p>Nota akan muncul di sini setelah kamu menekan Buat nota.</p>
+          </div>
+
+          <div class="kertas__isi" id="isiNota" hidden></div>
+
+          <p class="kertas__kaki">Harga dalam dolar AS, sesuai data dummyjson.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kaki">
+    <div class="kaki__dalam">
+      <div class="kaki__utama reveal">
+        <div class="kaki__identitas">
+          <p class="kaki__merek"><span class="kaki__inti">ragam</span><span class="kaki__titik">.</span></p>
+          <p class="kaki__ket">
+            Katalog data produk dan pembuat nota pesanan berbasis web.
+            Data produk bersumber dari dummyjson.com.
+          </p>
+        </div>
+        <nav class="kaki__nav" aria-label="Navigasi kaki">
+          <a href="#katalog">Katalog</a>
+          <a href="#nota">Nota</a>
+          <a href="https://dummyjson.com" rel="noopener">Sumber data</a>
+        </nav>
+      </div>
+      <div class="kaki__bawah reveal">
+        <p class="kaki__kredit">Dikembangkan oleh Ahmad Rassya Maulana - Teknologi Informasi - Universitas Muhammadiyah Yogyakarta.</p>
+        <p class="kaki__copyright">© 2026 ragam. Dibangun dengan HTML, CSS, dan JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
